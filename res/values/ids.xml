@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- common -->
+    <item name="loading_spinner" type="id"/>
+    <item name="content_id" type="id"/>
+    <!-- common end -->
+
+</resources>
