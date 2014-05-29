@@ -23,5 +23,11 @@
     <string name="signup">注册</string>
     <string name="signup_suc">注册成功！</string>
     <string name="login">登录</string>
+    <string name="verify_not_empty"><xliff:g>%1$s</xliff:g>不能为空</string>
+    <string name="verify_no_whitespace"><xliff:g>%1$s</xliff:g>不能包含空格</string>
+    <string name="verify_length"><xliff:g>%1$s</xliff:g>长度只能在<xliff:g>%2$s</xliff:g>~<xliff:g>%3$s</xliff:g>之间</string>
+    <string name="verify_not_consistent"><xliff:g>%1$s</xliff:g>不一致</string>
+    <string name="verify_email_invalid">邮箱格式不对</string>
+    <string name="pwd_retype_pwd">两次输入的密码</string>
 
 </resources>

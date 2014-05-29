@@ -116,7 +116,7 @@ public class MainActivity extends BaseActivity implements SignUpListener,LoginOp
 			break;
 		case 1:
 			if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
-				show(new LoginFragment());
+				show(new SignUpFragment());
 			} else {
 				show(new ShareFragment());
 			}

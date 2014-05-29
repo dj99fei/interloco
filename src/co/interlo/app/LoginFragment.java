@@ -9,7 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import co.interlo.app.fragment.BaseFragment;
+import co.interlo.app.fragment.MessageDialogFragment;
 import co.interlo.domain.User;
+import co.interlo.exception.VerifyException;
+import co.interlo.util.Constants;
+import co.interlo.util.Verifier;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -59,7 +63,9 @@ public class LoginFragment extends BaseFragment {
 			}
 			break;
 		case R.id.login:
-			// verify...
+			if (!verify()) {
+				return;
+			}
 			User user = new User();
 			setShowProgress(true);
 			user.login(usernameEdit.getText().toString(), passwordEdit
@@ -83,7 +89,25 @@ public class LoginFragment extends BaseFragment {
 
 	public static interface LoginOperationListener {
 		public void onSignUp();
+
 		public void onLoginSuc(ParseUser user);
+	}
+
+	private boolean verify() {
+		String username = usernameEdit.getText().toString();
+		String pwd = passwordEdit.getText().toString();
+		Verifier verifier = new Verifier();
+		try {
+			verifier.notEmpty(username, R.string.username)
+					.noWhiteSpace(username, R.string.username)
+					.isLengthValid(username, 3, 20, R.string.username)
+					.notEmpty(pwd, R.string.password);
+			return true;
+		} catch (VerifyException e) {
+			verifier.handleVerifyException(getActivity().getSupportFragmentManager(),e);
+			return false;
+		}
+
 	}
 
 }

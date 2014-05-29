@@ -2,6 +2,8 @@ package co.interlo.app.fragment;
 
 import javax.annotation.Nullable;
 
+import com.google.inject.Inject;
+
 import roboguice.fragment.RoboFragment;
 import roboguice.inject.InjectView;
 import android.app.Activity;

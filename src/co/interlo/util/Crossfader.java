@@ -1,5 +1,7 @@
 package co.interlo.util;
 
+import com.google.inject.Inject;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
@@ -17,6 +19,7 @@ public class Crossfader implements CrossfadeFeature {
 	private BaseActivityFeature activityFeature;
 	private int animTime;
 
+	@Inject
 	public Crossfader(BaseActivityFeature activityFeature) {
 		super();
 		this.activityFeature = activityFeature;

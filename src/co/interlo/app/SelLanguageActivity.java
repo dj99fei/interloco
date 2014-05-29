@@ -14,7 +14,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 @ContentView(R.layout.activity_sel_language)
-public class SelLanguageActivity extends BaseActivity{
+public class SelLanguageActivity extends BaseActivity {
 
 	@InjectView(R.id.english)
 	private Button selEnglish;
@@ -40,8 +40,8 @@ public class SelLanguageActivity extends BaseActivity{
 
 	@Override
 	public void onClick(View v) {
-		
-		int study = 0;
+
+		int study = User.STUDY_ENGLISH;
 		switch (v.getId()) {
 		case R.id.chinese:
 			study = User.STUDY_CHINESE;
@@ -50,11 +50,9 @@ public class SelLanguageActivity extends BaseActivity{
 			study = User.STUDY_ENGLISH;
 			break;
 		}
-		if(study != 0){
-			ParseUser.getCurrentUser().put("study", study);
-			ParseUser.getCurrentUser().saveInBackground();
-		}
-		startActivity(new Intent(this,SelGenderActivity.class));
+		ParseUser.getCurrentUser().put("study", study);
+		ParseUser.getCurrentUser().saveInBackground();
+		startActivity(new Intent(this, SelGenderActivity.class));
 		finish();
 	}
 

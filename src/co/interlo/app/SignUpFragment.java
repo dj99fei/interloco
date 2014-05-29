@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import co.interlo.app.fragment.BaseFragment;
 import co.interlo.domain.User;
+import co.interlo.exception.VerifyException;
+import co.interlo.util.Verifier;
 
 public class SignUpFragment extends BaseFragment {
 
@@ -55,7 +57,10 @@ public class SignUpFragment extends BaseFragment {
 
 		switch (v.getId()) {
 		case R.id.signup:
-			// verify ...
+
+			if (!verify()) {
+				return;
+			}
 			User user = new User();
 			setShowProgress(true);
 			user.signup(usernameEdit.getText().toString(), passwordEdit
@@ -89,4 +94,29 @@ public class SignUpFragment extends BaseFragment {
 		public void onSignUpSuc();
 	}
 
+	private boolean verify() {
+		Verifier verifier = new Verifier();
+		String pwd = passwordEdit.getText().toString();
+		String pwd2 = passwordAffirmEdit.getText().toString();
+		String username = usernameEdit.getText().toString();
+		String email = emailEdit.getText().toString();
+		int usernameResId = R.string.username;
+		try {
+			verifier.notEmpty(username, usernameResId)
+					.noWhiteSpace(username, usernameResId)
+					.isLengthValid(username, Verifier.USERNAME_LENGTH_MIN,
+							Verifier.USERNAME_LENGTH_MAX, usernameResId)
+					.notEmpty(email, R.string.email)
+					.isEmailValid(email)
+					.notEmpty(pwd, R.string.password)
+					.notEmpty(pwd2, R.string.password_affirm)
+					.isConsistent(pwd2, pwd, R.string.pwd_retype_pwd);
+		} catch (VerifyException e) {
+			verifier.handleVerifyException(getActivity()
+					.getSupportFragmentManager(), e);
+			return false;
+		}
+		return true;
+
+	}
 }
