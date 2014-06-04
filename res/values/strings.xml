@@ -3,17 +3,16 @@
 
     <string name="app_name">Interloco</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="wel_des">10秒打破我和世界的界限</string>
+    <string name="welcome_description">10秒打破我和世界的界限</string>
     <string name="i_want_to_study">我想学</string>
     <string name="english">英</string>
     <string name="chinese">汉</string>
-    <string name="or_e">or</string>
-    <string name="skip_e">skip</string>
+    <string name="or">or</string>
+    <string name="skip">skip</string>
     <string name="iam">我是</string>
     <string name="male">男</string>
     <string name="female">女</string>
-    <string name="as_secret">保密</string>
+    <string name="in_secrecy">保密</string>
     <string name="drawer_open_e">Open</string>
     <string name="drawer_close_e">Close</string>
     <string name="username">用户名</string>
@@ -21,7 +20,7 @@
     <string name="password">密码</string>
     <string name="password_affirm">确认密码</string>
     <string name="signup">注册</string>
-    <string name="signup_suc">注册成功！</string>
+    <string name="signup_success">注册成功！</string>
     <string name="login">登录</string>
     <string name="verify_not_empty"><xliff:g>%1$s</xliff:g>不能为空</string>
     <string name="verify_no_whitespace"><xliff:g>%1$s</xliff:g>不能包含空格</string>

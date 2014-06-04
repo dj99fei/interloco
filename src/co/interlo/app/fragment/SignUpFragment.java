@@ -1,7 +1,4 @@
-package co.interlo.app;
-
-import com.parse.ParseException;
-import com.parse.SignUpCallback;
+package co.interlo.app.fragment;
 
 import roboguice.inject.InjectView;
 import android.os.Bundle;
@@ -11,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import co.interlo.app.fragment.BaseFragment;
+import co.interlo.app.R;
 import co.interlo.domain.User;
 import co.interlo.exception.VerifyException;
 import co.interlo.util.Verifier;
+
+import com.parse.ParseException;
+import com.parse.SignUpCallback;
 
 public class SignUpFragment extends BaseFragment {
 
@@ -75,10 +75,10 @@ public class SignUpFragment extends BaseFragment {
 										Toast.LENGTH_SHORT).show();
 							} else {
 								Toast.makeText(getActivity(),
-										getString(R.string.signup_suc),
+										getString(R.string.signup_success),
 										Toast.LENGTH_SHORT).show();
 								if (listener != null) {
-									listener.onSignUpSuc();
+									listener.onSignUpSuccess();
 								}
 							}
 						}
@@ -91,7 +91,7 @@ public class SignUpFragment extends BaseFragment {
 	}
 
 	public static interface SignUpListener {
-		public void onSignUpSuc();
+		public void onSignUpSuccess();
 	}
 
 	private boolean verify() {
@@ -106,8 +106,7 @@ public class SignUpFragment extends BaseFragment {
 					.noWhiteSpace(username, usernameResId)
 					.isLengthValid(username, Verifier.USERNAME_LENGTH_MIN,
 							Verifier.USERNAME_LENGTH_MAX, usernameResId)
-					.notEmpty(email, R.string.email)
-					.isEmailValid(email)
+					.notEmpty(email, R.string.email).isEmailValid(email)
 					.notEmpty(pwd, R.string.password)
 					.notEmpty(pwd2, R.string.password_affirm)
 					.isConsistent(pwd2, pwd, R.string.pwd_retype_pwd);

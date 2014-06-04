@@ -39,7 +39,7 @@
         android:layout_centerInParent="true"
         android:layout_toRightOf="@id/male"
         android:layout_toLeftOf="@id/female"
-        android:text="@string/or_e" />
+        android:text="@string/or" />
 
     <Button
         android:id="@+id/as_secret"
@@ -48,6 +48,6 @@
         android:layout_marginBottom="30dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/as_secret" />
+        android:text="@string/in_secrecy" />
 
 </RelativeLayout>

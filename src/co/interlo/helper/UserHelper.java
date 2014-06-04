@@ -14,7 +14,7 @@ public class UserHelper {
 	}
 
 	public void update(User user) {
-		
+
 	}
-	
+
 }

@@ -26,7 +26,7 @@ public class BaseAdapter<T> extends android.widget.BaseAdapter {
 		this.context = context;
 		mInflater = LayoutInflater.from(context);
 	}
-	
+
 	public BaseAdapter(Context context, List<T> data) {
 		this(context);
 		mData.addAll(data);

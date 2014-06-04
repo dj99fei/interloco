@@ -14,15 +14,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import co.interlo.adapter.DrawerListAdatper;
-import co.interlo.app.LoginFragment.LoginOperationListener;
-import co.interlo.app.SignUpFragment.SignUpListener;
+import co.interlo.adapter.DrawerListAdapter;
 import co.interlo.app.fragment.BrowseFragment;
 import co.interlo.app.fragment.ShareFragment;
+import co.interlo.app.fragment.SignUpFragment;
+import co.interlo.app.fragment.LoginFragment.LoginOperationListener;
+import co.interlo.app.fragment.SignUpFragment.SignUpListener;
 import co.interlo.util.Lists;
 
 @ContentView(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements SignUpListener,LoginOperationListener {
+public class MainActivity extends BaseActivity implements SignUpListener,
+		LoginOperationListener {
 
 	private String[] mDrawerItems;
 
@@ -51,7 +53,7 @@ public class MainActivity extends BaseActivity implements SignUpListener,LoginOp
 
 	private void setDrawer() {
 		mDrawerItems = this.getResources().getStringArray(R.array.drawer_item);
-		mDrawerList.setAdapter(new DrawerListAdatper(this, Lists
+		mDrawerList.setAdapter(new DrawerListAdapter(this, Lists
 				.newArrayList(mDrawerItems)));
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
@@ -136,7 +138,7 @@ public class MainActivity extends BaseActivity implements SignUpListener,LoginOp
 	}
 
 	@Override
-	public void onSignUpSuc() {
+	public void onSignUpSuccess() {
 		show(new ShareFragment());
 	}
 

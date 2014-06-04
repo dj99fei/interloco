@@ -10,16 +10,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-@ContentView(R.layout.activity_sel_gender)
-public class SelGenderActivity extends BaseActivity{
+@ContentView(R.layout.activity_select_gender)
+public class SelectGenderActivity extends BaseActivity {
 
 	@InjectView(R.id.female)
 	private Button femaleButton;
 	@InjectView(R.id.male)
 	private Button maleButton;
-	
+
 	@InjectView(R.id.as_secret)
 	private Button asSecretButton;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class SelGenderActivity extends BaseActivity{
 		maleButton.setOnClickListener(this);
 		femaleButton.setOnClickListener(this);
 	}
+
 	@Override
 	public void onClick(View v) {
 		int gender = 0;
@@ -38,19 +40,18 @@ public class SelGenderActivity extends BaseActivity{
 			gender = User.GENDER_MALE;
 			break;
 		}
-		if(gender != 0){
+		if (gender != 0) {
 			ParseUser user = ParseUser.getCurrentUser();
 			user.put("gender", gender);
 			user.saveInBackground();
 		}
 		toNext();
 	}
-	
-	private void toNext(){
-		Intent intent = new Intent(this,MainActivity.class);
+
+	private void toNext() {
+		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 		finish();
 	}
-	
 
 }

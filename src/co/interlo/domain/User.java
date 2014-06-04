@@ -7,10 +7,10 @@ import com.parse.SignUpCallback;
 public class User {
 
 	public ParseUser parseUser;
-	
+
 	public int gender;
-	
-	public User(){
+
+	public User() {
 		parseUser = ParseUser.getCurrentUser();
 	}
 
@@ -51,17 +51,16 @@ public class User {
 	public boolean hasStudy() {
 		return getStudy() != 0;
 	}
-	
-	
-	public void signup(String username,String pass,String email,SignUpCallback callback){
+
+	public void signup(String username, String pass, String email,
+			SignUpCallback callback) {
 		parseUser.setUsername(username);
 		parseUser.setPassword(pass);
 		parseUser.setEmail(email);
 		parseUser.signUpInBackground(callback);
 	}
-	
-	
-	public void login(String username,String pass,LogInCallback callback){
+
+	public void login(String username, String pass, LogInCallback callback) {
 		ParseUser.logInInBackground(username, pass, callback);
 	}
 }

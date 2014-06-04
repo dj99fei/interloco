@@ -39,7 +39,7 @@
         android:layout_centerInParent="true"
         android:layout_toRightOf="@id/english"
         android:layout_toLeftOf="@id/chinese"
-        android:text="@string/or_e" />
+        android:text="@string/or" />
 
     <TextView
         android:id="@+id/skip"
@@ -48,6 +48,6 @@
         android:layout_marginBottom="30dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/skip_e" />
+        android:text="@string/skip" />
 
 </RelativeLayout>

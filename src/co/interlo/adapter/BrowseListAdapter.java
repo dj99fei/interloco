@@ -9,7 +9,7 @@ import android.widget.AbsListView.LayoutParams;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-public class BrowseListAdapter extends BaseAdapter<Integer>{
+public class BrowseListAdapter extends BaseAdapter<Integer> {
 
 	@Inject
 	public BrowseListAdapter(Context context) {
@@ -18,16 +18,15 @@ public class BrowseListAdapter extends BaseAdapter<Integer>{
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		if(convertView == null){
+		if (convertView == null) {
 			convertView = new ImageView(context);
-			convertView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT));
+			convertView.setLayoutParams(new LayoutParams(
+					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 			convertView.setPadding(8, 8, 8, 8);
-			((ImageView)convertView).setScaleType(ScaleType.CENTER_CROP);
+			((ImageView) convertView).setScaleType(ScaleType.CENTER_CROP);
 		}
-		((ImageView)convertView).setImageResource(getItemAt(position));
+		((ImageView) convertView).setImageResource(getItemAt(position));
 		return convertView;
 	}
 
-
-	 
 }

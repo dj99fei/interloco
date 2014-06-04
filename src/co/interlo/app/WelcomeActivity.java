@@ -42,7 +42,6 @@ public class WelcomeActivity extends BaseActivity {
 				}
 			}
 
-			
 		}, 0, 1000);
 	}
 
@@ -57,14 +56,17 @@ public class WelcomeActivity extends BaseActivity {
 		super.onResume();
 		paused = false;
 	}
+
 	private void toNext() {
 		User user = new User();
-		if(user.hasGender() && user.hasStudy()){
-			startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
-		}else if(!user.hasStudy()){
-			startActivity(new Intent(WelcomeActivity.this,SelLanguageActivity.class));
-		}else if(!user.hasGender()){
-			startActivity(new Intent(WelcomeActivity.this,SelGenderActivity.class));
+		if (user.hasGender() && user.hasStudy()) {
+			startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+		} else if (!user.hasStudy()) {
+			startActivity(new Intent(WelcomeActivity.this,
+					SelectLanguageActivity.class));
+		} else if (!user.hasGender()) {
+			startActivity(new Intent(WelcomeActivity.this,
+					SelectGenderActivity.class));
 		}
 		finish();
 	}

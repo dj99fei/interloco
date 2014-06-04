@@ -13,8 +13,8 @@ import co.interlo.domain.User;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-@ContentView(R.layout.activity_sel_language)
-public class SelLanguageActivity extends BaseActivity {
+@ContentView(R.layout.activity_select_language)
+public class SelectLanguageActivity extends BaseActivity {
 
 	@InjectView(R.id.english)
 	private Button selEnglish;
@@ -52,7 +52,7 @@ public class SelLanguageActivity extends BaseActivity {
 		}
 		ParseUser.getCurrentUser().put("study", study);
 		ParseUser.getCurrentUser().saveInBackground();
-		startActivity(new Intent(this, SelGenderActivity.class));
+		startActivity(new Intent(this, SelectGenderActivity.class));
 		finish();
 	}
 

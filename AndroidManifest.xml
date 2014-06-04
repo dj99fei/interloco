@@ -33,11 +33,11 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".SelLanguageActivity"
+            android:name=".SelectLanguageActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".SelGenderActivity"
+            android:name=".SelectGenderActivity"
             android:screenOrientation="portrait" >
         </activity>
     </application>

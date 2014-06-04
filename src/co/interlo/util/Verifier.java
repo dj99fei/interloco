@@ -13,7 +13,7 @@ import co.interlo.exception.VerifyException;
 public class Verifier {
 
 	private MyApplication myapp;
-	
+
 	public static final int USERNAME_LENGTH_MAX = 20;
 	public static final int USERNAME_LENGTH_MIN = 3;
 
@@ -54,18 +54,19 @@ public class Verifier {
 		}
 		return this;
 	}
-	
-	public Verifier isEmailValid(String email) throws VerifyException{
-		Pattern p = Pattern.compile("^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$");
+
+	public Verifier isEmailValid(String email) throws VerifyException {
+		Pattern p = Pattern
+				.compile("^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$");
 		Matcher m = p.matcher(email);
 		if (!m.matches()) {
-			throw new VerifyException(myapp.getString(
-					R.string.verify_email_invalid));
+			throw new VerifyException(
+					myapp.getString(R.string.verify_email_invalid));
 		}
 		return this;
 	}
-	
-	public void handleVerifyException(FragmentManager fm,VerifyException e){
+
+	public void handleVerifyException(FragmentManager fm, VerifyException e) {
 		MessageDialogFragment dialog = new MessageDialogFragment();
 		Bundle args = new Bundle();
 		args.putString(Constants.MSG, e.getMessage());

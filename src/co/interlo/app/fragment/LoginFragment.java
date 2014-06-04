@@ -1,4 +1,4 @@
-package co.interlo.app;
+package co.interlo.app.fragment;
 
 import roboguice.inject.InjectView;
 import android.os.Bundle;
@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import co.interlo.app.fragment.BaseFragment;
-import co.interlo.app.fragment.MessageDialogFragment;
+import co.interlo.app.R;
+import co.interlo.app.R.id;
+import co.interlo.app.R.layout;
+import co.interlo.app.R.string;
 import co.interlo.domain.User;
 import co.interlo.exception.VerifyException;
 import co.interlo.util.Constants;
@@ -104,7 +106,8 @@ public class LoginFragment extends BaseFragment {
 					.notEmpty(pwd, R.string.password);
 			return true;
 		} catch (VerifyException e) {
-			verifier.handleVerifyException(getActivity().getSupportFragmentManager(),e);
+			verifier.handleVerifyException(getActivity()
+					.getSupportFragmentManager(), e);
 			return false;
 		}
 
