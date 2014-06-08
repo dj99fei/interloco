@@ -1,7 +1,5 @@
 package co.interlo.app.fragment;
 
-import javax.annotation.Nullable;
-
 import roboguice.fragment.RoboFragment;
 import roboguice.inject.InjectView;
 import android.os.Bundle;

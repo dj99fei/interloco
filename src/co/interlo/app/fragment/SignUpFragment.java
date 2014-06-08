@@ -3,6 +3,9 @@ package co.interlo.app.fragment;
 import roboguice.inject.InjectView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,6 +37,7 @@ public class SignUpFragment extends BaseFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
 		if (getActivity() instanceof SignUpListener) {
 			listener = (SignUpListener) getActivity();
 		}
@@ -92,6 +96,8 @@ public class SignUpFragment extends BaseFragment {
 
 	public static interface SignUpListener {
 		public void onSignUpSuccess();
+
+		public void onLogin();
 	}
 
 	private boolean verify() {
@@ -116,6 +122,22 @@ public class SignUpFragment extends BaseFragment {
 			return false;
 		}
 		return true;
-
 	}
+
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.fragment_signup, menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getItemId() == R.id.action_login) {
+			if (listener != null) {
+				listener.onLogin();
+			}
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 }

@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import co.interlo.adapter.DrawerListAdapter;
 import co.interlo.app.fragment.BrowseFragment;
+import co.interlo.app.fragment.LoginFragment;
 import co.interlo.app.fragment.ShareFragment;
 import co.interlo.app.fragment.SignUpFragment;
 import co.interlo.app.fragment.LoginFragment.LoginOperationListener;
@@ -74,8 +75,8 @@ public class MainActivity extends BaseActivity implements SignUpListener,
 	}
 
 	private void setActionBar() {
-		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		this.getSupportActionBar().setHomeButtonEnabled(true);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -134,7 +135,7 @@ public class MainActivity extends BaseActivity implements SignUpListener,
 	@Override
 	public void setTitle(CharSequence title) {
 		mTitle = title;
-		getSupportActionBar().setTitle(mTitle);
+		getActionBar().setTitle(mTitle);
 	}
 
 	@Override
@@ -150,6 +151,11 @@ public class MainActivity extends BaseActivity implements SignUpListener,
 	@Override
 	public void onLoginSuc(ParseUser user) {
 		show(new ShareFragment());
+	}
+
+	@Override
+	public void onLogin() {
+		show(new LoginFragment());
 	}
 
 }

@@ -1,10 +1,10 @@
 package co.interlo.app;
 
+import roboguice.activity.RoboFragmentActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import roboguice.activity.RoboFragmentActivity;
 
-public class BaseActivity extends RoboActionBarActivity implements
+public class BaseActivity extends RoboFragmentActivity implements
 		OnClickListener {
 
 	@Override
